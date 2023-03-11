@@ -17,7 +17,7 @@ def write_node(file, data):
 
 def insert_node(word, description, edit_node_file):
     node = read_node(edit_node_file)
-    if f"{edit_node_file}.json" == f"node_{word}.json":
+    if f"{edit_node_file}.json" == f"node_{urllib.parse.quote(word)}.json":
         node["word"] = word
         node["description"] = description
         node["isEnd"] = True
@@ -30,21 +30,21 @@ def insert_node(word, description, edit_node_file):
             "description": None,
             "index": index,
             "child": {
-                word[index+1]: f"node_{word[:index+2]}"
+                word[index+1]: urllib.parse.quote(f"node_{word[:index+2]}")
             },
             "isEnd": False
         }
         return relay_node_data
     
-    node["child"][word[0]] = f"node_{word[0]}"
+    node["child"][word[0]] = urllib.parse.quote(f"node_{word[0]}")
     write_node(edit_node_file, node)
 
     for index in range(node["index"]+1, len(word)-1):
-        relay_node_file = f"node_{word[:index+1]}"
+        relay_node_file = urllib.parse.quote(f"node_{word[:index+1]}")
         relay_node = gen_relay_node_data(index)
         write_node(relay_node_file, relay_node)
 
-    end_node_file = f"node_{word}"
+    end_node_file = urllib.parse.quote(f"node_{word}")
     end_node = {
         "word": word,
         "description": description,
@@ -55,7 +55,7 @@ def insert_node(word, description, edit_node_file):
     write_node(end_node_file, end_node)
 
 
-def search_node(word, node_file, index=0, before_node_file=None):
+def search_node(word, node_file, index=0):
     node = read_node(node_file)
     if len(word) == index:
         if node["isEnd"]:
@@ -66,7 +66,7 @@ def search_node(word, node_file, index=0, before_node_file=None):
         file_name = node["child"][word[index]]
     except KeyError:
         return node_file
-    return search_node(word, file_name, index+1, node_file)
+    return search_node(word, file_name, index+1)
 
 
 def main():
