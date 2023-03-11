@@ -12,8 +12,8 @@ def read_node(file):
 
 
 def write_node(file, data):
-    with open(f"{root_node_dir}/{file}.json", "w") as f:
-        json.dump(data, f, indent=4)
+    with open(f"{root_node_dir}/{file}.json", "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=4, ensure_ascii=False)
 
 def insert_node(word, description, edit_node_file):
     node = read_node(edit_node_file)
