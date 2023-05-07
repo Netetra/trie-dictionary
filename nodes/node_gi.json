@@ -1,0 +1,9 @@
+{
+    "word": null,
+    "description": null,
+    "index": 1,
+    "child": {
+        "t": "node_git"
+    },
+    "isEnd": false
+}

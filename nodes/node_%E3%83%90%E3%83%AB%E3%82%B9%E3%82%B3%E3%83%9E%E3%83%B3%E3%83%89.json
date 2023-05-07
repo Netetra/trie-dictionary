@@ -1,0 +1,7 @@
+{
+    "word": "バルスコマンド",
+    "description": "OSの入っているディスクの中を消し飛ばすコマンド。Linuxでは\"rm -rf /*\" Windowsでは\"cmd /c rd /s /q c:\\ \"",
+    "index": 6,
+    "child": {},
+    "isEnd": true
+}

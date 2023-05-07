@@ -1,0 +1,7 @@
+{
+    "word": "git",
+    "description": "ソースコードのバージョン管理をするCUIツール",
+    "index": 2,
+    "child": {},
+    "isEnd": true
+}

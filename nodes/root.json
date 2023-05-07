@@ -2,6 +2,12 @@
     "word": null,
     "description": null,
     "index": -1,
-    "child": {},
+    "child": {
+        "R": "node_R",
+        "フ": "node_%E3%83%95",
+        "g": "node_g",
+        "r": "node_r",
+        "バ": "node_%E3%83%90"
+    },
     "isEnd": false
 }
